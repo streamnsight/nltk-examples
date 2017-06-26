@@ -60,14 +60,14 @@ words = [word for word in words if len(word) > 1]
 words = [word for word in words if not word.isnumeric()]
 
 # Lowercase all words (default_stopwords are lowercase too)
-words = [word.lower() for word in words]
+# words = [word.lower() for word in words]
 
 # Stemming words seems to make matters worse, disabled
 # stemmer = nltk.stem.snowball.SnowballStemmer('german')
 # words = [stemmer.stem(word) for word in words]
 
 # Remove stopwords
-words = [word for word in words if word not in all_stopwords]
+words = [word for word in words if word.lower() not in all_stopwords]
 
 # Calculate frequency distribution
 fdist = nltk.FreqDist(words)
